@@ -9,13 +9,141 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      flashcards: {
+        Row: {
+          answer: string
+          created_at: string | null
+          difficulty: string | null
+          id: string
+          question: string
+          subject: string | null
+          times_correct: number | null
+          times_studied: number | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          answer: string
+          created_at?: string | null
+          difficulty?: string | null
+          id?: string
+          question: string
+          subject?: string | null
+          times_correct?: number | null
+          times_studied?: number | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          answer?: string
+          created_at?: string | null
+          difficulty?: string | null
+          id?: string
+          question?: string
+          subject?: string | null
+          times_correct?: number | null
+          times_studied?: number | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      mindmaps: {
+        Row: {
+          created_at: string | null
+          edges: Json | null
+          id: string
+          nodes: Json | null
+          title: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          edges?: Json | null
+          id?: string
+          nodes?: Json | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          edges?: Json | null
+          id?: string
+          nodes?: Json | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          id: string
+          level: number | null
+          updated_at: string | null
+          username: string | null
+          xp: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          id: string
+          level?: number | null
+          updated_at?: string | null
+          username?: string | null
+          xp?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          level?: number | null
+          updated_at?: string | null
+          username?: string | null
+          xp?: number | null
+        }
+        Relationships: []
+      }
+      study_sessions: {
+        Row: {
+          created_at: string | null
+          duration_minutes: number | null
+          id: string
+          items_count: number | null
+          session_type: string
+          user_id: string
+          xp_earned: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          duration_minutes?: number | null
+          id?: string
+          items_count?: number | null
+          session_type: string
+          user_id: string
+          xp_earned?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          duration_minutes?: number | null
+          id?: string
+          items_count?: number | null
+          session_type?: string
+          user_id?: string
+          xp_earned?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      update_user_xp: {
+        Args: { user_id: string; xp_to_add: number }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never

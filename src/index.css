@@ -1,9 +1,8 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Tellect Design System */
 
 @layer base {
   :root {
@@ -15,26 +14,33 @@
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-    --radius: 12px;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
+
+    /* Tellect brand colors */
+    --tellect-primary: 243 26% 35%; /* rgba(72,70,109,1) */
+    --tellect-accent: 164 65% 83%; /* rgba(186,240,223,1) */
+    --tellect-accent-soft: 164 65% 95%;
+    --tellect-neutral-50: 0 0% 98%;
+    --tellect-neutral-100: 0 0% 96%;
+    --tellect-neutral-200: 0 0% 91%;
+    --tellect-neutral-300: 0 0% 83%;
+    --tellect-neutral-400: 0 0% 64%;
+    --tellect-neutral-500: 0 0% 45%;
+    --tellect-neutral-600: 0 0% 32%;
+    --tellect-neutral-700: 0 0% 25%;
+    --tellect-neutral-800: 0 0% 15%;
+    --tellect-neutral-900: 0 0% 9%;
   }
 
   .dark {
@@ -57,14 +63,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -72,76 +70,68 @@
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-white text-tellect-neutral-800 font-poppins antialiased;
-    line-height: 1.6;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-tellect-primary;
-    line-height: 1.3;
+    @apply bg-background text-foreground font-['Poppins'];
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
-@layer components {
-  /* Tellect Component Styles */
+@layer utilities {
   .tellect-card {
-    @apply bg-white rounded-tellect shadow-sm border border-tellect-neutral-200 p-tellect transition-all duration-300;
+    @apply bg-white border border-tellect-neutral-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300;
   }
-
-  .tellect-card:hover {
-    @apply shadow-md transform -translate-y-0.5;
-  }
-
-  .tellect-button {
-    @apply px-6 py-3 rounded-tellect font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
-
-  .tellect-button-primary {
-    @apply tellect-button bg-tellect-accent text-tellect-primary hover:bg-tellect-accent-hover active:scale-95 focus:ring-tellect-accent;
-  }
-
-  .tellect-button-secondary {
-    @apply tellect-button border-2 border-tellect-accent text-tellect-primary bg-transparent hover:bg-tellect-accent-soft active:scale-95 focus:ring-tellect-accent;
-  }
-
-  .tellect-input {
-    @apply w-full px-4 py-3 border border-tellect-neutral-300 rounded-tellect focus:outline-none focus:ring-2 focus:ring-tellect-accent focus:border-transparent transition-all duration-200;
-  }
-
+  
   .tellect-progress-bar {
-    @apply w-full h-2 bg-tellect-neutral-200 rounded-full overflow-hidden;
+    @apply w-full bg-tellect-neutral-200 rounded-full h-2;
   }
-
+  
   .tellect-progress-fill {
-    @apply h-full bg-gradient-to-r from-tellect-accent to-tellect-accent-hover transition-all duration-500 ease-out;
+    @apply bg-gradient-to-r from-tellect-primary to-tellect-accent h-2 rounded-full transition-all duration-500;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out;
+  }
+  
+  .animate-gentle-bounce {
+    animation: gentleBounce 2s ease-in-out infinite;
   }
 }
 
-/* Custom scrollbar for a cleaner look */
-::-webkit-scrollbar {
-  width: 6px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(186, 240, 223, 0.1);
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(186, 240, 223, 0.6);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(186, 240, 223, 0.8);
-}
-
-/* Perspective for card flip animations */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
+@keyframes gentleBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
