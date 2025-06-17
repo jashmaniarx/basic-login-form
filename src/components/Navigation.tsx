@@ -6,9 +6,8 @@ const Navigation = () => {
   
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/flashcards", label: "Review" },
-    { path: "/lessons", label: "Lessons" },
-    { path: "/mindmap", label: "Mind Map" },
+    { path: "/math", label: "Math" },
+    { path: "/science", label: "Science" },
     { path: "/progress", label: "Progress" },
   ];
 
@@ -36,7 +35,6 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile menu button - simplified for now */}
           <div className="md:hidden">
             <button className="p-2 text-tellect-neutral-600">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

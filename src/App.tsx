@@ -5,9 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Flashcards from "./pages/Flashcards";
-import Lessons from "./pages/Lessons";
-import MindMap from "./pages/MindMap";
+import Math from "./pages/Math";
+import Science from "./pages/Science";
 import Progress from "./pages/Progress";
 import NotFound from "./pages/NotFound";
 
@@ -21,9 +20,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/flashcards" element={<Flashcards />} />
-          <Route path="/lessons" element={<Lessons />} />
-          <Route path="/mindmap" element={<MindMap />} />
+          <Route path="/math" element={<Math />} />
+          <Route path="/science" element={<Science />} />
           <Route path="/progress" element={<Progress />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

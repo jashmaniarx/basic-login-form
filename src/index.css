@@ -74,7 +74,7 @@
   }
 
   body {
-    @apply bg-white text-tellect-neutral-800 font-inter antialiased;
+    @apply bg-white text-tellect-neutral-800 font-poppins antialiased;
     line-height: 1.6;
   }
 
@@ -99,11 +99,11 @@
   }
 
   .tellect-button-primary {
-    @apply tellect-button bg-tellect-accent text-tellect-primary hover:bg-tellect-accent-hover active:scale-95;
+    @apply tellect-button bg-tellect-accent text-tellect-primary hover:bg-tellect-accent-hover active:scale-95 focus:ring-tellect-accent;
   }
 
   .tellect-button-secondary {
-    @apply tellect-button border-2 border-tellect-accent text-tellect-primary bg-transparent hover:bg-tellect-accent-soft active:scale-95;
+    @apply tellect-button border-2 border-tellect-accent text-tellect-primary bg-transparent hover:bg-tellect-accent-soft active:scale-95 focus:ring-tellect-accent;
   }
 
   .tellect-input {
@@ -135,4 +135,13 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(186, 240, 223, 0.8);
+}
+
+/* Perspective for card flip animations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
